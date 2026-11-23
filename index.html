@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Santiago Roman Ramirez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-crema: #f4efe6;
+            --card-blanco: #fffdf9;
+            --verde-bosque: #1b4332;
+            --verde-medio: #2d6a4f;
+            --verde-salvia: #e8f0eb;
+            --arena: #f5ebe0;
+            --terracota: #c8553d;
+            --terracota-hover: #a9442f;
+            --mostaza: #d4a359;
+            --texto-oscuro: #1f2923;
+            --texto-suave: #4f5d54;
+            --borde-calido: #dfd6c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-crema);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+            padding: 28px 16px 48px;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Cabecera en Verde Bosque Profundo */
+        header {
+            background-color: var(--verde-bosque);
+            color: #f8f6f1;
+            border-radius: 16px;
+            padding: 36px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            border-bottom: 5px solid var(--mostaza);
+        }
+
+        .foto-perfil {
+            width: 132px;
+            height: 132px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--mostaza);
+            background-color: var(--verde-medio);
+            flex-shrink: 0;
+        }
+
+        .header-info {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 1.95rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .subtitulo {
+            color: var(--mostaza);
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-top: 6px;
+        }
+
+        .bio {
+            color: #dce5df;
+            font-size: 0.95rem;
+            margin-top: 12px;
+            max-width: 620px;
+        }
+
+        .contacto-grupo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-contacto {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.15s ease;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-terracota {
+            background-color: var(--terracota);
+            color: #ffffff;
+        }
+
+        .btn-terracota:hover {
+            background-color: var(--terracota-hover);
+        }
+
+        .btn-secundario {
+            background-color: rgba(255, 253, 249, 0.12);
+            color: #f8f6f1;
+            border: 1px solid rgba(255, 253, 249, 0.28);
+        }
+
+        .btn-secundario:hover {
+            background-color: rgba(255, 253, 249, 0.22);
+        }
+
+        /* Secciones en Blanco Cálido */
+        section {
+            background-color: var(--card-blanco);
+            border: 1px solid var(--borde-calido);
+            border-radius: 16px;
+            padding: 28px 32px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--arena);
+        }
+
+        .indicador-color {
+            width: 10px;
+            height: 22px;
+            border-radius: 4px;
+            background-color: var(--terracota);
+            flex-shrink: 0;
+        }
+
+        .indicador-mostaza {
+            background-color: var(--mostaza);
+        }
+
+        .indicador-bosque {
+            background-color: var(--verde-bosque);
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--verde-bosque);
+        }
+
+        /* Formación Académica */
+        .formacion-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 12px;
+            background-color: var(--arena);
+            padding: 18px 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--mostaza);
+        }
+
+        .formacion-carrera {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--texto-oscuro);
+        }
+
+        .formacion-escuela {
+            color: var(--verde-medio);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 2px;
+        }
+
+        .badge-cuatrimestre {
+            background-color: var(--card-blanco);
+            color: var(--terracota);
+            border: 1px solid var(--borde-calido);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Habilidades Técnicas */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-bloque {
+            background-color: var(--bg-crema);
+            border: 1px solid var(--borde-calido);
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .skill-bloque h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--verde-bosque);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .tags-lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag-salvia {
+            background-color: var(--verde-salvia);
+            color: var(--verde-bosque);
+            border: 1px solid #c9dcd0;
+            padding: 5px 11px;
+            border-radius: 7px;
+            font-size: 0.84rem;
+            font-weight: 500;
+        }
+
+        .tag-arena {
+            background-color: var(--arena);
+            color: #5c4328;
+            border: 1px solid #e4d1bc;
+            padding: 5px 11px;
+            border-radius: 7px;
+            font-size: 0.84rem;
+            font-weight: 500;
+        }
+
+        /* Proyectos Destacados */
+        .proyectos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .proyecto-card {
+            background-color: var(--card-blanco);
+            border: 1px solid var(--borde-calido);
+            border-top: 4px solid var(--verde-bosque);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.2s ease;
+        }
+
+        .proyecto-card:nth-child(2) {
+            border-top-color: var(--mostaza);
+        }
+
+        .proyecto-card:nth-child(3) {
+            border-top-color: var(--terracota);
+        }
+
+        .proyecto-numero {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--terracota);
+            background-color: var(--arena);
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .proyecto-card h3 {
+            font-size: 1.06rem;
+            color: var(--texto-oscuro);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .proyecto-card p {
+            color: var(--texto-suave);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .proyecto-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .btn-proyecto {
+            display: block;
+            text-align: center;
+            background-color: var(--terracota);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-proyecto:hover {
+            background-color: var(--terracota-hover);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: var(--texto-suave);
+            font-size: 0.88rem;
+            padding-top: 6px;
+            font-weight: 500;
+        }
+
+        /* Adaptación Móvil */
+        @media (max-width: 640px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 28px 22px;
+            }
+
+            .contacto-grupo {
+                justify-content: center;
+            }
+
+            section {
+                padding: 22px 20px;
+            }
+
+            h1 {
+                font-size: 1.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Cabecera Principal -->
+        <header>
+            <img
+                src="perfil.jpg"
+                alt="Foto de Santiago Roman Ramirez"
+                onerror="this.onerror=null; this.src='https://placehold.co/260x260/2d6a4f/f8f6f1?text=SR';"
+                class="foto-perfil"
+            >
+            <div class="header-info">
+                <h1>Santiago Roman Ramirez</h1>
+                <p class="subtitulo">Estudiante de Ingeniería en Desarrollo y Gestión de Software</p>
+                <p class="bio">
+                    Desarrollador enfocado en aplicaciones web, lógica de programación y gestión de bases de datos relacionales.
+                </p>
+
+                <div class="contacto-grupo">
+                    <a href="mailto:santiago.roman@ejemplo.com" class="btn-contacto btn-terracota">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        santiago.roman@ejemplo.com
+                    </a>
+
+                    <button type="button" onclick="copiarCorreo()" class="btn-contacto btn-secundario">
+                        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                        <span id="texto-copiar">Copiar correo</span>
+                    </button>
+
+                    <a href="https://github.com/Santiago-4yhgh" target="_blank" rel="noopener noreferrer" class="btn-contacto btn-secundario">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Formación Académica -->
+        <section>
+            <div class="section-header">
+                <span class="indicador-color indicador-mostaza"></span>
+                <h2>Formación Académica</h2>
+            </div>
+
+            <div class="formacion-item">
+                <div>
+                    <p class="formacion-carrera">Ingeniería en Desarrollo y Gestión de Software</p>
+                    <p class="formacion-escuela">Universidad Tecnológica Fidel Velázquez (UTFV)</p>
+                </div>
+                <span class="badge-cuatrimestre">Actualmente cursando el 10° Cuatrimestre</span>
+            </div>
+        </section>
+
+        <!-- Habilidades Técnicas -->
+        <section>
+            <div class="section-header">
+                <span class="indicador-color indicador-bosque"></span>
+                <h2>Habilidades Técnicas</h2>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-bloque">
+                    <h3>Lenguajes de Programación</h3>
+                    <div class="tags-lista">
+                        <span class="tag-salvia">Java</span>
+                        <span class="tag-salvia">JavaScript</span>
+                        <span class="tag-salvia">HTML5</span>
+                        <span class="tag-salvia">SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-bloque">
+                    <h3>Bases de Datos</h3>
+                    <div class="tags-lista">
+                        <span class="tag-arena">MySQL</span>
+                        <span class="tag-arena">Modelado Relacional</span>
+                        <span class="tag-arena">Consultas SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-bloque">
+                    <h3>Tecnologías y Plataformas</h3>
+                    <div class="tags-lista">
+                        <span class="tag-salvia">Git</span>
+                        <span class="tag-salvia">GitHub</span>
+                        <span class="tag-salvia">GitHub Pages</span>
+                        <span class="tag-salvia">Visual Studio Code</span>
+                        <span class="tag-salvia">MySQL Workbench</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos Destacados -->
+        <section>
+            <div class="section-header">
+                <span class="indicador-color"></span>
+                <h2>Proyectos Destacados</h2>
+            </div>
+
+            <div class="proyectos-grid">
+                <!-- Proyecto 1 -->
+                <article class="proyecto-card">
+                    <div>
+                        <span class="proyecto-numero">Proyecto 01</span>
+                        <h3>Sistema de Inventario en Consola</h3>
+                        <p>Aplicación orientada a objetos para el registro, consulta y actualización de productos en almacén.</p>
+                    </div>
+                    <div class="proyecto-footer">
+                        <div class="tags-lista">
+                            <span class="tag-salvia">Java</span>
+                            <span class="tag-arena">POO</span>
+                        </div>
+                        <a class="btn-proyecto" href="https://github.com/Santiago-4yhgh/sistema-inventario-java" target="_blank" rel="noopener noreferrer">
+                            Ver en GitHub →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Proyecto 2 -->
+                <article class="proyecto-card">
+                    <div>
+                        <span class="proyecto-numero">Proyecto 02</span>
+                        <h3>Base de Datos Gestión Escolar</h3>
+                        <p>Diseño relacional, creación de tablas y consultas avanzadas para el control de alumnos, materias y calificaciones.</p>
+                    </div>
+                    <div class="proyecto-footer">
+                        <div class="tags-lista">
+                            <span class="tag-salvia">MySQL</span>
+                            <span class="tag-arena">SQL</span>
+                        </div>
+                        <a class="btn-proyecto" href="https://github.com/Santiago-4yhgh/bd-gestion-escolar-mysql" target="_blank" rel="noopener noreferrer">
+                            Ver en GitHub →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Proyecto 3 -->
+                <article class="proyecto-card">
+                    <div>
+                        <span class="proyecto-numero">Proyecto 03</span>
+                        <h3>Gestor de Tareas Web</h3>
+                        <p>Aplicación web interactiva para agregar, marcar como completadas y filtrar pendientes en tiempo real.</p>
+                    </div>
+                    <div class="proyecto-footer">
+                        <div class="tags-lista">
+                            <span class="tag-salvia">HTML</span>
+                            <span class="tag-arena">JavaScript</span>
+                        </div>
+                        <a class="btn-proyecto" href="https://github.com/Santiago-4yhgh/gestor-tareas-js" target="_blank" rel="noopener noreferrer">
+                            Ver en GitHub →
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Pie de página -->
+        <footer>
+            <p>© 2026 Santiago Roman Ramirez — Portafolio de Evidencias</p>
+        </footer>
+    </div>
+
+    <script>
+        function copiarCorreo() {
+            const correo = "santiago.roman@ejemplo.com";
+            const inputTemp = document.createElement("input");
+            inputTemp.value = correo;
+            document.body.appendChild(inputTemp);
+            inputTemp.select();
+            try {
+                document.execCommand("copy");
+                const etiqueta = document.getElementById("texto-copiar");
+                etiqueta.textContent = "¡Correo copiado!";
+                setTimeout(() => {
+                    etiqueta.textContent = "Copiar correo";
+                }, 2000);
+            } catch (err) {
+                console.error("No se pudo copiar el correo:", err);
+            }
+            document.body.removeChild(inputTemp);
+        }
+    </script>
+</body>
+</html>
